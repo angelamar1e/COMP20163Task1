@@ -13,7 +13,12 @@
             <option value=""></option>
         </select>
         <input type="text" class="form_fields">
-        <input type="radio" class="form_fields">
+        <label for="Vertical Arrangement"></label>
+        <input type="radio" name="arrangement_types" class="arrangement_types">
+        <label for="Biedermeier Bouquet"></label>
+        <input type="radio" name="arrangement_types" class="arrangement_types">
+        <label for="Cascade Arrangement"></label>
+        <input type="radio" name="arrangement_types" class="arrangement_types">
     </form>
 </body>
 </html>
