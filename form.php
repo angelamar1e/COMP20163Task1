@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="forms.css">
 </head>
 <body>
     <div id="form_div">
@@ -20,19 +21,13 @@
             <input type="number" class="form_fields"><br>
 
             <label for="arrangement_types">Select your preferred flower arrangement:</label>
-            <!-- arrangement types radio group -->
-            <div id="arrangement_types_div">
-                <div id="vertical_radio" class="arrangement_type_div">
-                    <input type="radio" name="arrangement_types" class="arrangement_types">
-                    <label for="Vertical Arrangement">Vertical Arrangement</label>
+            <!-- arrangement types radio group if roses is chosen -->
+            <div id="arrangement_types_roses">
+                <div id="arrangement_type_images">
+                    <img src="images/roses_vertical_arrangement.jpg" alt="" class="arrangement_type_image">
+                    <img src="images/roses_biedermeier.jpg" alt="" class="arrangement_type_image">
+                    <img src="images/roses_shower_bouquet.jpg" alt="" class="arrangement_type_image">
                 </div>
-                <div id="biedermeier_radio" class="arrangement_type_div">
-                    <input type="radio" name="arrangement_types" class="arrangement_types">
-                    <label for="Biedermeier Bouquet">Biedermeier Bouquet</label>
-                </div>
-                <div id="cascade_radio" class="arrangement_type_div">
-                    <input type="radio" name="arrangement_types" class="arrangement_types">
-                    <label for="Cascade Arrangement">Cascade Arrangement</label>
                 </div>
             </div>
         </form>
