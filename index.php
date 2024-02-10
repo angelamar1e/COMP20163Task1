@@ -1,6 +1,7 @@
 <?php 
     session_start();
     
+    // name validation after automatic submission
     if(isset($_POST['name'])){
         $name = $_POST['name'];
         $pattern = '/^[A-Za-z\s\-]+$/';
@@ -8,15 +9,12 @@
         if (preg_match($pattern, $name) or empty($name)) {
             $_SESSION['name'] = $name;
         }
-        else{
-            alert('Please enter a valid name.');
+        else{ ?>
+            <script>
+                alert("Please enter a valid name.");
+            </script>
+        <?php
         }
-    }
-
-    function alert($message){
-        echo '<script>
-                alert("'.$message.'");
-            </script>';
     }
 ?>
 
@@ -34,10 +32,13 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="row w-75 justify-content-center" id="container_div">
+
                 <div class="row p-0 justify-content-center" id="greeting_div">
+                    <!-- greeting -->
                     <div class="row w-100 justify-content-center">
                         <h1 class="custom-font2 text-center" id="greeting">Welcome<?php echo isset($_SESSION['name']) && !empty($_SESSION['name']) ? ', ' . $_SESSION['name'] : '!'; ?></h1>
                     </div>
+                    <!-- name input, in separate form for automatic submission and reflect to greeting -->
                     <div class="row justify-content-center mt-5">
                         <form class="w-50 d-flex flex-row justify-content-center" action="" method="post" id="name_form">
                             <h3 class="d-flex align-items-center" id="name_label"><label for="name"> Enter your name:</label></h3>
@@ -47,18 +48,21 @@
                     </div>
                 </div>
                 <div class="row p-0 justify-content-center">
+                    <!-- form body starts here-->
                     <form action="process_form.php" method="post">
+                        <!-- sample images of the flowers -->
                         <div class="row w-100 flex-row justify-content-center">
                             <div class="col-2 d-flex align-items-center">
                                 <img class="w-100" src="images/single-rose.png" alt="A rose">
                             </div>
                             <div class="col-2 d-flex justify-content-center">
-                                <img class="w-75" src="images/single-tulip.png" alt="">
+                                <img class="w-75" src="images/single-tulip.png" alt="A tulip">
                             </div>
                             <div class="col-2 d-flex align-items-center">
-                                <img class="w-100" src="images/single-gerbera.png" alt="">
+                                <img class="w-100" src="images/single-gerbera.png" alt="A gerbera">
                             </div>
                         </div>
+                        <!-- favorite flower input -->
                         <div class="row justify-content-center">
                             <h4 class="text-center mt-5"><label for="fave_flower">Out of these three flowers, what's your favorite?</label></h4>
                             <select class="w-25 text-center" name="fave_flower" id="fave_flower" onchange="get_fave_flower()" required>
@@ -67,10 +71,13 @@
                                 <option value="Gerbera">Gerbera</option>
                             </select>
                         </div>
+                        <!-- quantity input -->
                         <div class="row justify-content-center">
                             <h4 class="text-center mt-5"><label for="quantity">How many of this flower would you like? (Max of 99)</label></h4>
                             <input class="w-25 text-center" type="number" name="quantity" id="quantity" oninput="restrictDigits()" min="1" max="99" required>
                         </div>
+
+                        <!-- selecting flower arrangement -->
                         <div class="row justify-content-center">
                             <h4 class="text-center mt-5"><label for="arrangement">Which flower arrangement do you prefer?</label></h4>
                         </div>
@@ -83,10 +90,10 @@
                                     <img class="w-100" src="images/roses_vertical_arrangement.jpg" alt="Roses in vertical arrangement">
                                 </div>
                                 <div class="col-3">
-                                    <img class="w-100" src="images/roses_biedermeier.jpg" alt="">
+                                    <img class="w-100" src="images/roses_biedermeier.jpg" alt="Roses in a biedermeier bouquet">
                                 </div>
                                 <div class="col-3">
-                                    <img class="w-100" src="images/roses_shower_bouquet.jpg" alt="">
+                                    <img class="w-100" src="images/roses_shower_bouquet.jpg" alt="Roses in a cascade bouquet">
                                 </div>
                             </div>
                         </div>
@@ -98,10 +105,10 @@
                                     <img class="w-100" src="images/tulips_vertical_arrangement.jpg" alt="Tulips in vertical arrangement">
                                 </div>
                                 <div class="col-3">
-                                    <img class="w-100" src="images/tulips_biedermeier.jpg" alt="">
+                                    <img class="w-100" src="images/tulips_biedermeier.jpg" alt="Tulips in a biedermeier bouquet">
                                 </div>
                                 <div class="col-3">
-                                    <img class="w-100" src="images/tulips_shower_bouquet.jpg" alt="">
+                                    <img class="w-100" src="images/tulips_shower_bouquet.jpg" alt="Tulips in a cascade bouquet">
                                 </div>
                             </div>
                         </div>
@@ -110,17 +117,18 @@
                             <!-- arrangement images -->
                             <div class="row w-75 justify-content-center p-2" id="gerbera_arrangement_images">
                                 <div class="col-3">
-                                    <img class="w-100" src="images/gerbera_vertical_arrangement.jpg" alt="Tulips in vertical arrangement">
+                                    <img class="w-100" src="images/gerbera_vertical_arrangement.jpg" alt="Gerberas in vertical arrangement">
                                 </div>
                                 <div class="col-3">
-                                    <img class="w-100" src="images/gerbera_biedermeier.jpg" alt="">
+                                    <img class="w-100" src="images/gerbera_biedermeier.jpg" alt="Gerberas in a biedermeier bouquet">
                                 </div>
                                 <div class="col-3">
-                                    <img class="w-100" src="images/gerbera_shower_bouquet.jpg" alt="">
+                                    <img class="w-100" src="images/gerbera_shower_bouquet.jpg" alt="Gerberas in a cascade bouquet">
                                 </div>
                             </div>
                         </div>
-                        <!-- arrangement types -->
+
+                        <!-- arrangement types radio buttons -->
                         <div class="row align-items-center flex-column">
                             <div class="row w-75 justify-content-center p-2" id="arrangement_types">
                                 <div class="col-3 p-0 text-center">

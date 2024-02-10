@@ -3,24 +3,28 @@ include('connection.php');
 
 session_start();
 
+// handling form submission variables
 if(isset($_POST['fave_flower']) and isset($_POST['quantity']) and isset($_POST['arrangement'])){
     
     $fave_flower = $_POST['fave_flower'];
     $qty = $_POST['quantity'];
     $arrangement = $_POST['arrangement'];
     
+    // query for adding into database if name was entered
     if (isset($_SESSION['name'])){
         $name = $_SESSION['name'];
         $query = "INSERT INTO entries (name, favorite_flower, flower_quantity, preferred_arrangement) 
         VALUES ('$name','$fave_flower',$qty,'$arrangement')";
     }
     else{
+        // query for adding into database if name was not entered
         $query = "INSERT INTO entries (favorite_flower, flower_quantity, preferred_arrangement) 
         VALUES ('$fave_flower',$qty,'$arrangement')";
     }
    
     $result = mysqli_query($conn, $query);
 
+    // handle result of the query
     if ($result){ ?>
          <script>
             alert("Form submitted successfully!");
@@ -30,6 +34,7 @@ if(isset($_POST['fave_flower']) and isset($_POST['quantity']) and isset($_POST['
     }
 ?>
 
+    <!--  to display previously inputted data -->
     <!DOCTYPE html>
     <html lang="en">
     <head>
