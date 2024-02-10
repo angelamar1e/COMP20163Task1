@@ -14,3 +14,29 @@ function restrictDigits() {
         input.value = inputValue.slice(0, maxDigits);
     }
 }
+
+function get_fave_flower(){
+    selectElement = document.getElementById('fave_flower');
+    roses = document.getElementById('roses_arrangement');
+    tulips = document.getElementById('tulips_arrangement');
+    gerbera = document.getElementById('gerbera_arrangement');
+
+    // Get the selected value
+    var selectedValue = selectElement.value;
+
+    if (selectedValue === 'Roses'){
+        roses.style.display = 'flex';
+        tulips.style.display = 'none';
+        gerbera.style.display = 'none';
+    }
+    else if (selectedValue === 'Tulips'){
+        roses.style.display = 'none';
+        tulips.style.display = 'flex';
+        gerbera.style.display = 'none';
+    }
+    else {
+        roses.style.display = 'none';
+        tulips.style.display = 'none';
+        gerbera.style.display = 'flex';
+    }
+}
