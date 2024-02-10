@@ -2,15 +2,15 @@ function submit_form(){
     document.getElementById('name_form').submit();
 }
 
-function validate_name(){
-    var nameInput = document.getElementById('name').value.trim();
+function restrictDigits() {
+    var input = document.getElementById('quantity');
+    var maxDigits = 2; // Maximum number of digits allowed
 
-    var namePattern = /^[A-Za-z\s]+$/;
-    if (!namePattern.test(nameInput)) {
-        // alert('Please enter a valid name containing only letters.');
-        return false;
-    }
-    else{
-        submit_form();
+    // Convert the input value to a string and remove leading zeros
+    var inputValue = input.value.toString().replace(/^0+/, '');
+
+    // Restrict the number of digits
+    if (inputValue.length > maxDigits) {
+        input.value = inputValue.slice(0, maxDigits);
     }
 }

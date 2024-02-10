@@ -40,7 +40,7 @@
             <div class="row">
                 <form action="" method="post" id="name_form">
                     <label for="name">Enter your name:</label>
-                    <input type="text" name="name" id="name" minlength="2" maxlength="30" pattern="[A-Za-z]{1,32}" onchange="submit_form()" required value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>">
+                    <input type="text" name="name" id="name" maxlength="30" onchange="submit_form()" required value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>">
                 </form>
             </div>
             <div class="row">
@@ -51,8 +51,8 @@
                         <option value="Tulips">Tulips</option>
                         <option value="Gerbera">Gerbera</option>
                     </select>
-                    <label for="quantity">How many of this flower would you want?</label>
-                    <input type="number" name="quantity" id="quantity">
+                    <label for="quantity">How many of this flower would you like?</label>
+                    <input type="number" name="quantity" id="quantity" oninput="restrictDigits()" min="1" max="99">
                     <label for="arrangement">Which flower arrangement do you prefer?</label>
                     <label for=""></label>
                     <input type="radio" name="arrangement" id="">
