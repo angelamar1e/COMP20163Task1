@@ -77,7 +77,7 @@ if(isset($_POST['fave_flower']) and isset($_POST['quantity']) and isset($_POST['
                             ?>
                         </div>
                         <div class="row mt-5 d-flex justify-content-end">
-                            <h3 class="w-50 text-end"><a href="index.php">Click to go back to the form</a></h3>
+                            <h3 class="w-50 text-end"><a href="index.php">Go back to the form</a></h3>
                         </div>
                     </div>
                     </div>
