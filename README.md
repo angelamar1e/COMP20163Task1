@@ -1,5 +1,6 @@
-# COMP20163Task1
-A simple Flower Survey form.
+Flower Survey 💐
+A simple web form created with PHP, HTML, CSS and Javascript functions.
 
-The file 'flower_survey.sql' is a mysql dump file for the database structure used for data storage.
-CSS Bootstrap 5 was used for the layout.
+## Notes
+- The file 'flower_survey.sql' is a mysql dump file for the database/storage structure.
+- CSS Bootstrap 5 was used for the layout.
