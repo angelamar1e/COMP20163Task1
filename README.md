@@ -1,4 +1,4 @@
-Flower Survey 💐
+# Flower Survey 💐
 A simple web form created with PHP, HTML, CSS and Javascript functions.
 
 ## Notes
